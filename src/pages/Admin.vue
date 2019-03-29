@@ -1,13 +1,13 @@
 <template>
     <el-container>
-        <el-aside width="200px">
+        <el-aside width="auto">
             <!-- 左侧菜单 -->
-            <Menu></Menu>
+            <Menu :isCollapse="isCollapse"></Menu>
         </el-aside>
         <el-container>
             <el-header>
                 <!-- 头部 -->
-                <Header></Header>
+                <Header @changeShow="changeShow"></Header>
             </el-header>
             <el-main>
                 <!-- 面包屑 -->
@@ -28,12 +28,25 @@ import Menu from "../components/Menu";
 import Breakcrumb from "../components/Breakcrumb";
 
 export default {
+    data(){
+        return {
+            // 控制菜单的显示，true是收起，false是展开
+            isCollapse: false
+        }
+    },
 
     // 注册组件
     components: {
         Header,
         Menu,
         Breakcrumb
+    },
+
+    methods: {
+        // 切换菜单显示,给头部组件调用
+        changeShow(){
+            this.isCollapse = !this.isCollapse
+        }
     }
 }
 </script>
