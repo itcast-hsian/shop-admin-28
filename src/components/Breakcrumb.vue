@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="margin-bottom:20px;">
         <el-breadcrumb separator="/">
             <el-breadcrumb-item v-for="(item, index) in routeInfo" :key="index">
                 {{item}}

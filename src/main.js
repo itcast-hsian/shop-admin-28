@@ -28,6 +28,8 @@ Vue.config.productionTip = false;
 
 // 挂载vue构造函数的原型链，每个组件可以通过this.$axios来调用
 Vue.prototype.$axios = axios;
+// 设置axios的基础url
+axios.defaults.baseURL = "http://localhost:8899";
 
 // 路由的配置
 const routes = [

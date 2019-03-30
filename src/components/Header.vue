@@ -18,7 +18,7 @@ export default {
     // 退出
     logout(){
       this.$axios({
-        url: "http://localhost:8899/admin/account/logout",
+        url: "/admin/account/logout",
         // 由于在8080端口下去请求8899端口，涉及到跨域
         withCredentials: true
       }).then(res => {

@@ -33,7 +33,7 @@
       onSubmit() {
         // 获取到form的值
         this.$axios({
-          url: "http://localhost:8899/admin/account/login",
+          url: "/admin/account/login",
           data: this.form,
           // 注意：没有s
           method: "POST",
