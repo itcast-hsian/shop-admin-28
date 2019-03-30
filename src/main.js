@@ -20,7 +20,7 @@ import CategoryList from "./pages/CategoryList";
 // ElementUI: 3.全局注册插件
 Vue.use(ElementUI);
 
-// 注册路由
+// 注册路由(注意)
 Vue.use(VueRouter);
 
 // 当前是开发环境,可以忽略

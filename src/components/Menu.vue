@@ -10,7 +10,7 @@
       :collapse="isCollapse"
     >
       <!-- 菜单通过数据循环的方式生成出来 -->
-      <el-submenu :index="index + 1" v-for="(item, index) in meuns" :key="index">
+      <el-submenu :index="`${index + 1}`" v-for="(item, index) in meuns" :key="index">
         <template slot="title">
           <!-- 图标 -->
           <i :class="item.icon"></i>
