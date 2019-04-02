@@ -3,13 +3,13 @@
     <!-- 新增/删除/搜索 -->
     <el-row type="flex" justify="space-between" style="margin-bottom:20px;">
       <div>
-        <el-button>新增</el-button>
+        <el-button @click="handleToAdd">新增</el-button>
         <el-button @click="handleDeletes">删除</el-button>
       </div>
 
       <el-col :span="8">
-        <el-input placeholder="请输入内容" v-model="input5" class="input-with-select">
-          <el-button slot="append" icon="el-icon-search"></el-button>
+        <el-input placeholder="请输入内容" v-model="searchvalueCache" class="input-with-select">
+          <el-button slot="append" icon="el-icon-search" @click="handelSearch"></el-button>
         </el-input>
       </el-col>
     </el-row>
@@ -85,6 +85,8 @@ export default {
       pageIndex: 1,
       pageSize: 4,
       searchvalue: "",
+      // 用于当做搜索内容的缓存，在点击搜索按钮把值赋给searchvalue
+      searchvalueCache: "",
       total: 0,
       ids: []
     };
@@ -136,7 +138,10 @@ export default {
     },
 
     // 编辑商品
-    handleEdit(index, row) {},
+    handleEdit(index, row) {
+      // 跳转到编辑页，并且带上id
+      this.$router.push(`/admin/goods-edit/${row.id}`);
+    },
 
     // 删除
     handleDelete(index, row) {
@@ -197,6 +202,19 @@ export default {
     handleSizeChange(val) {
       this.pageSize = val;
       this.getList();
+    },
+
+    // 搜索
+    // 1.把pageIndex改为第1页
+    // 2.刷新数据
+    handelSearch(){
+      this.searchvalue = this.searchvalueCache;
+      this.pageIndex = 1;
+      this.getList();
+    },
+    // 跳转到新增商品
+    handleToAdd(){
+      this.$router.push("/admin/goods-add");
     }
   }
 };

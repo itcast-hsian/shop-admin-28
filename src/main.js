@@ -15,6 +15,8 @@ import VueRouter from "vue-router";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import GoodsList from "./pages/GoodsList";
+import GoodsAdd from "./pages/GoodsAdd";
+import GoodsEdit from "./pages/GoodsEdit";
 import CategoryList from "./pages/CategoryList";
 
 // ElementUI: 3.全局注册插件
@@ -41,6 +43,8 @@ const routes = [
   meta: "管理后台",  
   children: [
     { path: "goods-list", component: GoodsList, meta: "商品列表",},
+    { path: "goods-add", component: GoodsAdd, meta: "新增商品",},
+    { path: "goods-edit/:id", component: GoodsEdit, meta: "编辑商品",},
     { path: "category-list", component: CategoryList, meta: "栏目列表", },
   ]}
 ]

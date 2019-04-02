@@ -1,5 +1,5 @@
 <template>
-    <div style="margin-bottom:20px;">
+    <div style="margin-bottom:20px;" class="aaa">
         <el-breadcrumb separator="/">
             <el-breadcrumb-item v-for="(item, index) in routeInfo" :key="index">
                 {{item}}
@@ -28,6 +28,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped >
+.aaa >>> .el-breadcrumb__inner{
+    color:red!important
+}
 </style>
