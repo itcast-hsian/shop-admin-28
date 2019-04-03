@@ -73,6 +73,11 @@ export default {
   },
 
   methods: {
+    // 跳转到添加栏目页
+    handleToAdd(){
+      this.$router.push("/admin/category-add");
+    },
+
     // 编辑当前分类数据
     // data是当前行的数据
     handleEdit(data) {

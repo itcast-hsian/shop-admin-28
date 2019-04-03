@@ -1,14 +1,31 @@
 <template>
     <el-row type="flex" justify="space-between" align="middle">
         <i class="el-icon-back" @click="handleClick"></i>
-        <div>admin 超级管理员 
+        <div>{{user.username}}  {{user.realname}}
           <span class="logout" @click="logout">退出</span>
         </div>
     </el-row>
 </template>
 
 <script>
+
+// 导入vuex的数据
+import {mapState} from "vuex";
+
+
 export default {
+  data(){
+    return {}
+  },
+
+  computed: {
+    ...mapState({
+      // key的值自己定义的属性，在页面根据这个值来渲染
+      // “user”是vuex中定义的属性
+      user: "user"
+    })
+  },
+
   methods: {
     // 切换菜单
     handleClick(){

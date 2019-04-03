@@ -18,6 +18,11 @@ import GoodsList from "./pages/GoodsList";
 import GoodsAdd from "./pages/GoodsAdd";
 import GoodsEdit from "./pages/GoodsEdit";
 import CategoryList from "./pages/CategoryList";
+import CategoryAdd from "./pages/CategoryAdd";
+
+// 导入vuex的store
+import store from "./store";
+
 
 // ElementUI: 3.全局注册插件
 Vue.use(ElementUI);
@@ -46,6 +51,7 @@ const routes = [
     { path: "goods-add", component: GoodsAdd, meta: "新增商品",},
     { path: "goods-edit/:id", component: GoodsEdit, meta: "编辑商品",},
     { path: "category-list", component: CategoryList, meta: "栏目列表", },
+    { path: "category-add", component: CategoryAdd, meta: "栏目列表", },
   ]}
 ]
 
@@ -58,6 +64,8 @@ const router = new VueRouter({routes});
 new Vue({
   // 挂载路由到根实例
   router,
+  // 把vuex关联到根实例，组件就可以任意去调用vuex的数据
+  store,
   render: h => h(App),
 }).$mount('#app')
 
